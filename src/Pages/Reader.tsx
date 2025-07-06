@@ -10,8 +10,7 @@ export function Reader() {
         <div className="flex flex-col items-center justify-center h-full">
             <h1 className="text-4xl font-bold mb-4">Reading page</h1>
             <p>Tu lis la série ID : {id}</p>
-            <button className="btn btn-soft" onClick={() => navigate("/")}>Go Home</button>
-            <button className="btn btn-soft" onClick={() => navigate("/dzqdqz")}>Go 404</button>
+            <button className="btn btn-soft" onClick={() => navigate("/")}>Go Home</button>  
         </div>
     );
 }
