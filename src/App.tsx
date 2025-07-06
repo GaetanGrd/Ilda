@@ -8,17 +8,13 @@ import { NotFound } from "./Pages/404";
 function App() {
 
 return (
-    <div className="relative w-screen h-screen overflow-hidden flex bg-light-main-color-1 dark:bg-main-color-1 z-0 max-w-full">
-            <div className="relative flex flex-col grow max-w-full min-w-0">
-                <div className="bg-light-main-color-2 dark:bg-main-color-2 relative rounded-tl-lg grow overflow-hidden max-w-full">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/reader/:id" element={<Reader />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </div>
-            </div>
-        </div>
+    <div>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/reader/:id" element={<Reader />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+    </div>
 );
 }
 
