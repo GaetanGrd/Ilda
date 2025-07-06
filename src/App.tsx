@@ -1,59 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 
-function App() {
-    const [greetMsg, setGreetMsg] = useState("");
-    const [name, setName] = useState("");
+import { Routes, Route} from "react-router-dom";
+import { Home } from "./Pages/Home";
 
-async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-}
+function App() {
 
 return (
-    <main className="container">
-        <h1>Welcome to Tauri + React</h1>
-
-        <div className="row">
-            <a href="https://vitejs.dev" target="_blank">
-                <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-            </a>
-            <a href="https://tauri.app" target="_blank">
-                <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-            </a>
-            <a href="https://reactjs.org" target="_blank">
-                <img src={reactLogo} className="logo react" alt="React logo" />
-            </a>
+    <div className="relative w-screen h-screen overflow-hidden flex bg-light-main-color-1 dark:bg-main-color-1 z-0 max-w-full">
+            <div className="relative flex flex-col grow max-w-full min-w-0">
+                <div className="bg-light-main-color-2 dark:bg-main-color-2 relative rounded-tl-lg grow overflow-hidden max-w-full">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                    </Routes>
+                </div>
+            </div>
         </div>
-        <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-        <form
-        className="row"     
-        onSubmit={(e) => {
-            e.preventDefault();
-            greet();
-        }}>
-            <input id="greet-input" onChange={(e) => setName(e.currentTarget.value)} placeholder="Enter a name..."/>
-            <button type="submit">Greet</button>
-        </form>
-        <p>{greetMsg}</p>
-
-    <div className="p-4 space-y-4">
-        <h1 className="text-2xl font-bold text-center text-primary">
-        ✅ TailwindCSS est bien actif
-        </h1>
-
-        <div className="flex justify-center">
-            <button className="btn btn-primary">Bouton DaisyUI</button>
-        </div>
-
-        <div className="alert alert-info shadow-lg">
-            <span>Si tu vois ça stylé → DaisyUI fonctionne aussi 😎</span>
-        </div>
-    </div>
-</main>
 );
 }
 
