@@ -2,6 +2,8 @@ import "./App.css";
 
 import { Routes, Route} from "react-router-dom";
 import { Home } from "./Pages/Home";
+import { Reader } from "./Pages/Reader";
+import { NotFound } from "./Pages/404";
 
 function App() {
 
@@ -11,6 +13,8 @@ return (
                 <div className="bg-light-main-color-2 dark:bg-main-color-2 relative rounded-tl-lg grow overflow-hidden max-w-full">
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/reader/:id" element={<Reader />} />
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
             </div>
