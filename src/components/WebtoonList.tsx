@@ -17,7 +17,7 @@ async function fetchWebtoons() {
 
 export function WebtoonList() {
   const [webtoons, setWebtoons] = useState<Webtoon[]>([]);
-  const navigate = useNavigate(); // ✅ ICI, hors du .map()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadWebtoons = async () => {
@@ -39,7 +39,7 @@ export function WebtoonList() {
           <div
             key={webtoon.id}
             className="card bg-base-100 shadow-xl cursor-pointer"
-            onClick={() => navigate(`/reader/${webtoon.id}`)} // ✅ OK ici
+            onClick={() => navigate(`/reader/${webtoon.id}`)} 
           >
             <figure>
               <img src={webtoon.image_url} alt={webtoon.title} />
